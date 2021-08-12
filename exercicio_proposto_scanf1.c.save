@@ -1,0 +1,20 @@
+/* Programa da aula de scanf - Exercício proposto 1 */
+/* Julho de 2021 */
+
+/* Bibliotecas */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Função Principal */
+
+int main()
+{
+	float a = 0.0,b = 0.0;
+	printf("Digite dois números: \n");
+	scanf("%f%f",&a,&b);
+	
+
+	return 0;
+}
+/* Fim da Função Principal */
