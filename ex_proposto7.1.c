@@ -25,24 +25,28 @@ int decriptografar(int v[],int n);
 /* ===================================================================================================================== */
 /* Constantes */
 
+#define num 6 /* Números de elementos a serem criptografados e decriptogrados */
 
 /* ===================================================================================================================== */
 int main()
 {
-    int v[4];
+    int v[num];
     
     v[0] = 0xA0;
-    v[1] = 0x25;
-    v[2] = 0xCA;
-    v[3] = 0xFE;
+    v[1] = 0x73;
+    v[2] = 0x25;
+    v[3] = 0xD3;
+    v[4] = 0xCA;
+    v[5] = 0xFE;
     
-    criptografar(v,4);
     
-    printf("\n%x %x %x %x\n",v[0],v[1],v[2],v[3]);
+    criptografar(v,num);
     
-    decriptografar(v,4);
+    printf("\n%X %X %X %X %X %X\n",v[0],v[1],v[2],v[3],v[4],v[5]);
     
-    printf("\n%x %x %x %x\n",v[0],v[1],v[2],v[3]);
+    decriptografar(v,num);
+    
+    printf("\n%X %X %X %X %X %X\n",v[0],v[1],v[2],v[3],v[4],v[5]);
 
 
 return 0;
@@ -64,8 +68,8 @@ int criptografar(int v[],int n)
     
     for (i=0; i< n; i++)
     { 
-        if (v[i]%2 == 0)     v[i] = v[i] + 5;   /*se par soma 5, se ímpar subtrai 3 */
-        else                 v[i] = v[i] - 3;    
+        if (v[i]%2 == 0)     v[i] = v[i] + 0x05;   /*se par soma 5, se ímpar subtrai 3 */
+        else                 v[i] = v[i] - 0x03;    
                 
     } /*fim do for */
     
@@ -81,8 +85,8 @@ int decriptografar(int v[],int n)
     
     for (i=0; i< n; i++)
     { 
-        if (v[i]%2 != 0)     v[i] = v[i] - 5;   /*se par subtrai 5, se ímpar soma 3 */
-        else                 v[i] = v[i] + 3;    
+        if (v[i]%2 != 0)     v[i] = v[i] - 0x05;   /*se par subtrai 5, se ímpar soma 3 */
+        else                 v[i] = v[i] + 0x03;    
                 
     } /*fim do for */
     
