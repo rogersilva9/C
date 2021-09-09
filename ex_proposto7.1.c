@@ -68,8 +68,8 @@ int criptografar(int v[],int n)
     
     for (i=0; i< n; i++)
     { 
-        if (v[i]%2 == 0)     v[i] = v[i] + 0x05;   /*se par soma 5, se ímpar subtrai 3 */
-        else                 v[i] = v[i] - 0x03;    
+        if (i%2 == 0)     v[i] = v[i] + 5;   /*se par soma 5, se ímpar subtrai 3 */
+        else              v[i] = v[i] - 3;    
                 
     } /*fim do for */
     
@@ -85,8 +85,8 @@ int decriptografar(int v[],int n)
     
     for (i=0; i< n; i++)
     { 
-        if (v[i]%2 != 0)     v[i] = v[i] - 0x05;   /*se par subtrai 5, se ímpar soma 3 */
-        else                 v[i] = v[i] + 0x03;    
+        if (i%2 == 0)     v[i] = v[i] - 5;   /*se par subtrai 5, se ímpar soma 3 */
+        else              v[i] = v[i] + 3;    
                 
     } /*fim do for */
     
