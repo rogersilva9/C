@@ -18,7 +18,7 @@ um número inteiro de 0 a 999. A matriz vai sendo preenchida a medida que o usu�
 /* ===================================================================================================================== */
 /* Protótipo de funções */
 
-void imprime_matriz(unsigned int v[4][6]);
+void imprime_matriz(unsigned int v[][6]);
 /* ===================================================================================================================== */
 
 /* ===================================================================================================================== */
@@ -42,13 +42,13 @@ int main()
     {
         num = -1; /* inicia num forçando um valor fora do range permitido */
 
-        while (num <= 0 || num >= 999 || num == -999)
+        while (num < 0 || num > 1000)
             {
                 printf("Digite o valor a ser inserido na planilha (entre 0 e 999): ");
                 scanf("%d",&num);
                 
             } /* Fim do while de inserir valor */
-        if (num == -999)   break;   /* encerra o programa */
+        if (num == 1000)   exit(0);   /* encerra o programa */
         printf("Digite o número da linha em que o valor será inserido (1 a 4): ");
         scanf("%d",&linha);
         printf("Digite o número da coluna em que o valor será inserido (1 a 6): ");
@@ -80,7 +80,7 @@ return 0;
 
 /* Desenvolvimento das funções de funções */
 
-void imprime_matriz(unsigned int v[4][6])
+void imprime_matriz(unsigned int v[][6])
 {
     unsigned int linha, coluna;
     puts("-------------------------------------");
