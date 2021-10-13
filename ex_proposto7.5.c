@@ -118,7 +118,7 @@ void interpreter(char *txt, unsigned int rep, unsigned int sound)
 /* Executa repetindo o texto especificado pela quantidade de repetições especificadas. Se sound for 1 executa o som */
 
 {
-	unsigned int i;
+	register int i;
 	
 	if (sound == 1) printf("\a\a\a\a");
 	
