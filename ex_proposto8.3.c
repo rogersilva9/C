@@ -34,6 +34,8 @@ saída:
 /* --- Protótipo das Funções --- */
 
 char protocol(int op1, int op2);
+void interpreta_protocol(int op1, int op2, char(*func)(int,int));
+
 
 /* ========================================================================= */
 /* --- Variáveis Globais --- */
@@ -55,10 +57,16 @@ int main()
 
 char protocol(int op1, int op2)
 {
-char response;
-response = op1 > op2 ? 'H' : 'L';
+	char response;
+	response = op1 > op2 ? 'H' : 'L';
 return response;
 } /* end protocol */
+
+void interpreta_protocol(int op1, int op2, char(*func)(int,int))
+{
+	printf("Resultado do protocolo: %c", protocol(op1, op2));
+
+} /* end interpreta_protocol */
 
 /* ============================================================================  
                                                               
