@@ -1,4 +1,4 @@
-0/* ============================================================================
+/* ============================================================================
     Linguagem C, o curso definitivo
     Módulo 8 Aula 3
     Título da Aula
@@ -45,7 +45,15 @@ void interpreta_protocol(int op1, int op2, char(*func)(int,int));
 /* --- Função Principal --- */
 int main()
 {
-      
+      int op1,op2;
+
+      printf("Digite um valor para Op1: ");
+      scanf("%d",&op1);
+      printf("Digite um valor para Op2: ");
+      scanf("%d",&op2);
+
+      interpreta_protocol(op1,op2,protocol(op1,op2));
+
   
   return 0;                                      /* retorna 0, se main for executada corretamente */
   
@@ -64,7 +72,7 @@ return response;
 
 void interpreta_protocol(int op1, int op2, char(*func)(int,int))
 {
-	printf("Resultado do protocolo: %c", protocol(op1, op2));
+	printf("Resultado do protocolo: %c\n", protocol(op1, op2));
 
 } /* end interpreta_protocol */
 
