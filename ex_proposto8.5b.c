@@ -50,7 +50,7 @@ int cont(int n)
 	
 	else
 	{
-		printf("%d, ",n-n+i);
+		printf("%d, ",i);
 		n--;
 		i++;
 		cont(n);	
