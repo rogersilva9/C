@@ -33,7 +33,8 @@ Criptografia removida: Curso de C
 
 /* ========================================================================= */
 /* --- Protótipo das Funções --- */
-
+void criptografar(char *arquivo_cripto, char *arquivo_decripto);
+void decriptografar(char *arquivo_cripto,char *arquivo_decripto);
 
 /* ========================================================================= */
 /* --- Variáveis Globais --- */
@@ -42,9 +43,63 @@ Criptografia removida: Curso de C
 /* --- Função Principal --- */
 int main()
 {
+	decriptografar("decripto.txt","cripto.txt");
+
+	return 0;
+	
 }
 /* --- Desenvolvimento de funções --- */
+void criptografar(char *arquivo_cripto, char *arquivo_decripto)
+{
+	FILE *arq_r, *arq_w;
+	int ch;
+	arq_r = fopen(arquivo_cripto,"r");
+	if (arq_r == NULL)
+	{
+		puts("Erro de leitura do arquivo a ser criptografado.");
+		exit(1);
+	}	
 
+	arq_w = fopen(arquivo_decripto,"w");
+	if (arq_w == NULL)
+	{
+		puts("Erro de leitura do arquivo a ser decriptografado.");
+		exit(2);
+	}	
+	
+	while((ch=fgetc(arq_r))!=EOF)	
+		fputc(ch+3,arq_w);
+
+	fclose(arq_r);
+	fclose(arq_w);
+	puts("Arquivo criptografado");
+}
+
+void decriptografar(char *arquivo_decripto, char *arquivo_cripto)
+{
+	FILE *arq_r, *arq_w;
+	int ch;
+	arq_r = fopen(arquivo_decripto,"r");
+	if (arq_r == NULL)
+	{
+		puts("Erro de leitura do arquivo a ser decriptografado.");
+		exit(1);
+	}	
+
+	arq_w = fopen(arquivo_cripto,"w");
+	if (arq_w == NULL)
+	{
+		puts("Erro de leitura do arquivo a ser criptografado.");
+		exit(2);
+	}	
+	
+	while((ch=fgetc(arq_r))!=EOF)	
+		fputc(ch-3,arq_w);
+
+	fclose(arq_r);
+	fclose(arq_w);
+	puts("Arquivo decriptografado");
+}
 
 
 /* ============================================================================  
