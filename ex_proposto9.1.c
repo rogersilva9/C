@@ -33,6 +33,8 @@ este for executado pela primeira vez.
 /* ========================================================================= */
 /* --- Protótipo das Funções --- */
 
+
+
 /* ========================================================================= */
 /* --- Variáveis Globais --- */
 
@@ -40,13 +42,25 @@ este for executado pela primeira vez.
 /* --- Função Principal --- */
 int main()
 {
+	FILE *arq;
 	
+	arq = fopen("celsius.dat","rb");
+	if (arq == NULL)
+	{
+		puts("Arquivo 'celsius.dat' não existe");
+		arq = fopen("celsius.dat","wb");
+		puts("Arquivo 'celsius.dat' foi criado");
+		exit(1);
+	}
+
+	fclose(arq);
+
 
 	return 0;
 	
 }
 /* --- Desenvolvimento de funções --- */
-}
+
 
 
 /* ============================================================================  
