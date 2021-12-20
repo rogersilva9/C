@@ -43,6 +43,9 @@ este for executado pela primeira vez.
 int main()
 {
 	FILE *arq;
+	float vec[10];
+	int i;
+
 	
 	arq = fopen("celsius.dat","rb");
 	if (arq == NULL)
@@ -53,7 +56,31 @@ int main()
 		exit(1);
 	}
 
+	fread(vec,sizeof(float),10,arq);
+	fclose(arq);	
+	
+	for(i=0;i<10;i++)
+		printf("%.1f ",vec[i]);
+	printf("\n");
+
+
+	printf("Entre com 10 novos valores para serem inseridos no arquivo 'celsius.dat':\n");
+	for(i=0;i<10;i++)
+		scanf("%f",&vec[i]);
+	arq = fopen("celsius.dat","wb");
+	if (arq == NULL)
+	{
+		puts("Houve um erro ao acessar o arquivo para a escrita");
+		exit(2);	
+	}
+	fwrite(vec,sizeof(float),10,arq);
 	fclose(arq);
+
+	puts("Arquivos inseridos com sucesso");
+	
+	
+
+	
 
 
 	return 0;
