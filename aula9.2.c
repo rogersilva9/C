@@ -43,9 +43,12 @@ struct cliente infos;
 /* --- Função Principal --- */
 int main()
 {
-	infos.cep = 9407020
+	infos.cep = 9407020;
 
-	printf("%d\n",infos.cep);	
+	printf("%d\n",infos.cep);
+
+	printf("Digite seu nome: ");
+	gets(infos.nome);	
 
 	return 0;	
 }
