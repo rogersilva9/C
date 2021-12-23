@@ -27,29 +27,30 @@
 /* ========================================================================= */
 /* --- Variáveis Globais --- */
 
-struct cliente
+struct drinks
 {
-	char nome[30];
-	char endereco[40];
-	char cidade[30];
-	char telefone[11];
-	int cep;
+	int margarita,
+	    dry_martini,
+	    caipirinha;
 
-};
-
-struct cliente infos;
+}open_bar;
+struct drinks *cheers;
 
 /* ========================================================================= */
 /* --- Função Principal --- */
 int main()
 {
-	infos.cep = 9407020;
+	cheers = &open_bar;
 
-	printf("%d\n",infos.cep);
+	(*cheers).margarita = 31;
+	cheers -> dry_martini =12;
+	cheers -> caipirinha = 51;
 
-	printf("Digite seu nome: ");
-	gets(infos.nome);	
-
+	
+	printf("%d\n",cheers->margarita);	
+	printf("%d\n",cheers->dry_martini);
+	printf("%d\n",cheers->caipirinha);
+	
 	return 0;	
 }
 /* --- Desenvolvimento de funções --- */
