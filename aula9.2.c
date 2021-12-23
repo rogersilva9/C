@@ -21,41 +21,34 @@
 /* --- Constantes --- */
 
 
-/* ========================================================================= */
-/* --- Protótipo das Funções --- */
-
-/* ========================================================================= */
-/* --- Variáveis Globais --- */
-
+/* Estrutura */
 struct drinks
 {
 	int margarita,
-	    dry_martini,
-	    caipirinha;
-
+	dry_martini,
+	caipirinha;
 }open_bar;
-struct drinks *cheers;
 
-/* ========================================================================= */
-/* --- Função Principal --- */
+
+/* Protótipo da Função */
+void barman(struct drinks *p);
+
+
+/* Função Principal */
 int main()
 {
-	cheers = &open_bar;
-
-	(*cheers).margarita = 31;
-	cheers -> dry_martini =12;
-	cheers -> caipirinha = 51;
-
-	
-	printf("%d\n",cheers->margarita);	
-	printf("%d\n",cheers->dry_martini);
-	printf("%d\n",cheers->caipirinha);
-	
-	return 0;	
-}
-/* --- Desenvolvimento de funções --- */
-
-
+	barman(&open_bar);
+	printf("%4d\n",open_bar.margarita);/* imprime 555 */
+	printf("%4d\n",open_bar.dry_martini); /* imprime 741 */
+	printf("%4d\n",open_bar.caipirinha); /* imprime 4093 */
+} /* end main */
+/* Desenvolvimento barman */
+void barman(struct drinks *p)
+{
+	p->margarita= 555;
+	p->dry_martini = 741;
+	p->caipirinha = 4093;
+} /* end barman */
 /* ============================================================================  
                                                               
                                        _                      
