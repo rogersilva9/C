@@ -50,7 +50,13 @@ int main()
 {
 
 		
-	le_sensor(0xA112);
+	le_sensor(0xA019); /* 25 graus celsius */
+
+	le_sensor(0xA219); /* -25 graus celsius */
+	
+	le_sensor(0xA319); /* -25 graus fahrenheit */
+
+	le_sensor(0xA00F); /* 15 graus celsius */
 
 
 return(0);
