@@ -19,7 +19,7 @@
 
 
 /* ========================================================================= */
-/* --- Constantes --- */
+
 
 
 
@@ -30,27 +30,30 @@
 /* Função Principal */
 int main()
 {
-	char s[100],
-	*palloc;
-	printf("Entre com uma string: ");
-	fgets(s,100,stdin);
+	FILE *arq;
+	unsigned char *palloc;
+	unsigned long int num_bytes=0, i=0;
+	int chr;
 
-	palloc = (char *) malloc(strlen(s)+1);
-
-	if (palloc == NULL)
-		puts("Memória insuficiente.");
-	else
-	{
-		strcpy(palloc,s);
-		putchar(0x0A);
-		printf(s);
-		putchar(0x0A);
-		printf(palloc);
-		putchar(0x0A);
-		free(palloc);
-	}
+	arq = fopen("code.txt","r");
 	
+	if (arq==NULL)
+	{
+		puts("Falha ao abrir o arquivo.");
+		exit(0);
+	}	
+	
+	puts("Arquivo aberto com sucesso.");
 
+	while ((chr =fgetc(arq))!=EOF)
+		num_bytes++;
+
+	printf("Tamanho do arquivo: %lu bytes\n",num_bytes);
+	rewind(arq); /* ponteiro retorna ao início do arquivo   */
+
+	/* aloca memória de acordo com o tamanho do arquivo */
+	
+	palloc = (unsigned char *) malloc(num_bytes*sizeof(char));
 
 } /* end main */
 
