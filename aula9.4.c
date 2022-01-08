@@ -72,6 +72,7 @@ int main()
 		printf("%c",palloc[i]);
 
 	fclose(arq);
+	free(palloc);
 
 	
 } /* end main */
