@@ -55,6 +55,25 @@ int main()
 	
 	palloc = (unsigned char *) malloc(num_bytes*sizeof(char));
 
+	if (palloc == NULL)
+	{
+		puts("Memória insuficiente.");
+		exit(0);
+	}
+	
+	/* armazena os caracteres */
+	while((chr = fgetc(arq))!=EOF)
+	{
+		if(i<=num_bytes) palloc[i] = (unsigned char) chr;
+		i++;	
+	}
+	
+	for(i=0;i<num_bytes;i++)
+		printf("%c",palloc[i]);
+
+	fclose(arq);
+
+	
 } /* end main */
 
 /* ============================================================================  
